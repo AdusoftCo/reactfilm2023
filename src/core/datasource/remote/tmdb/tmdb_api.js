@@ -1,18 +1,15 @@
 import axios from 'axios';
 //PARA IMPORTAR VIDEOS DE TMDB-CONFIG.DE API!!
 
-const tmdb_api = axios.create({
-    baseURL: 'https://api.themoviedb.org/3',
+export const tmdb_api = axios.create({
+    baseURL: "https://api.themoviedb.org/3",
     params: {
         api_key: import.meta.env.VITE_APP_TMDB_API_KEY,
-        language: 'es-ES',
-    }
+        language: "es-ES",
+    },
 });
 
-console.log(import.meta.env.VITE_APP_TMDB_API_KEY);
-
-
-const tmdb_paths = {
+export const tmdb_paths = {
     movies: {
         popular: "/movie/popular",
         top_rated: "/movie/top_rated",

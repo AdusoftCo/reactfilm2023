@@ -26,3 +26,29 @@ axios.interceptors.response.use(
         return Promise.reject(error);
     }
 )
+
+
+
+/*const TMDB_API = axios.create({
+  baseURL: "https://api.themoviedb.org/3",
+  api_key: import.meta.env.VITE_APP_TMDB_API_KEY,
+  language: "en-EN",
+});
+console.log(import.meta.env.VITE_APP_TMDB_API_KEY);*/
+
+
+
+/*const { logout } = useAuth();
+ 
+const getUser = async () => {
+    alert('Hola');
+  };
+  <AppButton 
+      style={{
+        background: "red",
+        color: "white",
+      }}
+      onClick={getUser}>Show Message!</AppButton>
+    <button onClick={logout}>Cerrar Sessión</button>
+    
+  </div>*/

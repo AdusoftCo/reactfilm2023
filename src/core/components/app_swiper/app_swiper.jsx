@@ -1,5 +1,6 @@
-import React from 'react'
-import { useRef, useEffect } from "react";
+import  React, { useRef, useEffect } from "react";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/swiper-bundle.css';
 
 export const AppSwiper = ({ children }) => {
     const swiperElRef = useRef(null);
@@ -8,10 +9,17 @@ export const AppSwiper = ({ children }) => {
         <swiper-container
             ref={swiperElRef}
             loop
+            spaceBetween="30"
             slides-per-view="3"
             navigation="true"
         >
-            {children}
+            {Array.isArray(children) ? (
+                children.map((child, index) => (
+                    <swiper-slide key={index}>{child}</swiper-slide>
+                ))
+            ) : (
+                <swiper-slide>{children}</swiper-slide>
+            )}
         </swiper-container>
     );
 };

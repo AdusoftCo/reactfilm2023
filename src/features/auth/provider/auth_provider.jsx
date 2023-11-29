@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { AppStorage } from "../../base/app_storage";
-import { authApi } from "../../datasource/remote/auth/auth_api";
+import { AppStorage } from "../../../core/base/app_storage";
+import { authApi } from "../../../core/datasource/remote/auth/auth_api";
 import { AuthContext } from "../context/auth_context";
 
 //const delay = (ms) => new Promise ((resolve) => setTimeout(resolve, ms));

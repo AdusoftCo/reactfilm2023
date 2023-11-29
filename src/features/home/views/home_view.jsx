@@ -1,33 +1,29 @@
-import React from 'react'
-import { useAuth } from '../../../core/auth/hook/use_auth'
-import { authApi } from "../../../core/datasource/remote/auth/auth_api";
-
-import axios from 'axios';
-
-const TMDB_API = axios.create({
-  baseURL: "https://api.themoviedb.org/3",
-  api_key: import.meta.env.VITE_APP_TMDB_API_KEY,
-  language: "en-EN",
-});
-console.log(import.meta.env.VITE_APP_TMDB_API_KEY);
+import React from 'react';
+import { AppSwiper } from '../../../core/components/app_swiper/app_swiper';
+import AppSwiperSlide from '../../../core/components/app_swiper/components/app_swiper_slide';
+import { getPopularMovies, getTopRatedMovies } from '../services/movies.services';
+import useSWR from 'swr';
 
 const HomeView = () => {
-  const { logout } = useAuth();
+  const { 
+    data: popularMovies, 
+    error: popularMoviesError, 
+    isLoading: popularMoviesIsloading,
+  } = useSWR( 'getPopularMovies', getPopularMovies );
   
-  const getUser = async () => {
-    const response = await authApi.get("/user");
-    console.log(response.data);
-  };
+  const {
+    data: topRatedMovies,
+    error: topRatedMoviesError,
+    isLoading: topRatedMoviesIsloading,
+  } = useSWR('getTopRatedMovies', getTopRatedMovies);
+  
 
   return (
     <div>
-      <h1>Home</h1>
-      
-      <button onClick={getUser}>Get User</button>
-      <button onClick={logout}>Cerrar Sessión</button>
-      
+      <AppCarrouselSection title={"Popular Movies"} data=
+      {popularMovies} />
     </div>
   );
 };
-
+      
 export default HomeView;

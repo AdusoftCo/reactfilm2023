@@ -1,5 +1,6 @@
 import React from 'react';
-import { useAuth } from '../../../core/auth/hook/use_auth';
+import { useAuth } from '../../../hook/use_auth';
+
 
 const LoginView = () => {
   const { login } = useAuth();
