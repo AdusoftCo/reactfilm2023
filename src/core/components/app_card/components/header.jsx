@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import useHover from "../../../hooks/useHover";
 import { useCardContext } from "../provider/card_context";
 
 const Header = ({ children, ...props }) => {
