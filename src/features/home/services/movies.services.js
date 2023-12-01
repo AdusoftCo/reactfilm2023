@@ -8,15 +8,30 @@ export const getPopularMovies = async () => {
     return tdmbMoviesTvAdapter(data);
 };
 
+
 export const getTopRatedMovies = async () => {
     const { data } = await tmdb_api.get(tmdb_paths.movies.top_rated);
 
     return tdmbMoviesTvAdapter(data);
 };
 
-export const getUpcomingMovies = async () => {
 
+export const getUpcomingMovies = async () => {
     const { data } = await tmdb_api.get(tmdb_paths.movies.upcoming);
+
+    return tdmbMoviesTvAdapter(data);
+};
+
+
+export const getAiringToday = async () => {
+    const { data } = await tmdb_api.get(tmdb_paths.tv.airing_today);
+
+    return tdmbMoviesTvAdapter(data);
+};
+
+
+export const getPopularTv = async () => {
+    const { data } = await tmdb_api.get(tmdb_paths.tv.popular);
 
     return tdmbMoviesTvAdapter(data);
 };
