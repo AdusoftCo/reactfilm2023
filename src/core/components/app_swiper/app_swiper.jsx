@@ -1,5 +1,4 @@
 import  React, { useRef, useEffect } from "react";
-import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper-bundle.css';
 
 export const AppSwiper = ({ children }) => {

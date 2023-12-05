@@ -17,7 +17,7 @@ export const getTopRatedMovies = async () => {
 
 
 export const getUpcomingMovies = async () => {
-    const { data } = await tmdb_api.get(tmdb_paths.movies.upcoming);
+    const { data } = await tmdb_api.get(tmdb_paths.movies.popular);
 
     return tdmbMoviesTvAdapter(data);
 };
@@ -31,7 +31,7 @@ export const getAiringToday = async () => {
 
 
 export const getPopularTv = async () => {
-    const { data } = await tmdb_api.get(tmdb_paths.tv.popular);
+    const { data } = await tmdb_api.get(tmdb_paths.tv.top_rated);
 
     return tdmbMoviesTvAdapter(data);
 };

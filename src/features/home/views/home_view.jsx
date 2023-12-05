@@ -1,10 +1,8 @@
 import React from 'react';
-import { AppSwiper } from '../../../core/components/app_swiper/app_swiper';
-import AppSwiperSlide from '../../../core/components/app_swiper/components/app_swiper_slide';
 import { getAiringToday, getPopularMovies, getPopularTv, getTopRatedMovies, getUpcomingMovies } from '../services/movies.services';
 import useSWR from 'swr';
 import AppCarrouselSection from '../../../core/components/app.carrousel.section/app_carrousel_section';
-import AppCard from '../../../core/components/app_card/app_card';
+
 
 const HomeView = () => {
   const { 
@@ -40,16 +38,29 @@ const HomeView = () => {
   
   return (
     <div>
-      <AppCarrouselSection title={"Popular Movies"} data=
-      {popularMovies} />
+      <div> 
+        <AppCarrouselSection title={"Pelis Clasicas"} data=
+        {popularMovies} />
+      </div>
 
-      <AppCarrouselSection title={"Tv Hoy !!!"} data=
-        {airingTodayTv} />
+      <div>
+        <AppCarrouselSection title={"La Tv Ahora !!!"} data=
+          {airingTodayTv} />
+      </div>
 
-      <AppCarrouselSection title={"Tv Pava XD" } data=
-        {popularTv} />
+      <div>
+        <AppCarrouselSection title={"Tv Pava XD" } data=
+          {popularTv} />
+      </div>
+    </div>
+  );
+};
+      
+export default HomeView;
 
-      <AppCard 
+
+
+/*<AppCard 
         height="150px"
         width="300px"
         backgroundImageSrc={"https://picsum.photos/400/200?random=1"}
@@ -57,9 +68,4 @@ const HomeView = () => {
         <AppCard.Header>HELLO!</AppCard.Header>
         <AppCard.Body>HELLO!</AppCard.Body>
         <AppCard.Footer>HELLO!</AppCard.Footer>
-      </AppCard>
-    </div>
-  );
-};
-      
-export default HomeView;
+      </AppCard> */
