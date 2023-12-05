@@ -1,7 +1,8 @@
 import React from 'react';
-import { getAiringToday, getPopularMovies, getPopularTv, getTopRatedMovies, getUpcomingMovies } from '../services/movies.services';
 import useSWR from 'swr';
 import AppCarrouselSection from '../../../core/components/app.carrousel.section/app_carrousel_section';
+import { getPopularMovies } from '../services/movies.services';
+import { getAiringTodayTv, getPopularTv } from '../services/tv.services';
 
 
 const HomeView = () => {
@@ -12,22 +13,10 @@ const HomeView = () => {
   } = useSWR( 'getPopularMovies', getPopularMovies );
   
   const {
-    data: topRatedMovies,
-    error: topRatedMoviesError,
-    isLoading: topRatedMoviesIsloading,
-  } = useSWR('getTopRatedMovies', getTopRatedMovies);
-
-  const {
-    data: upComingMovies,
-    error: upComingMoviesError,
-    isLoading: upComingMoviesIsloading,
-  } = useSWR('getUpComingMovies', getUpcomingMovies);
-  
-  const {
     data: airingTodayTv,
     error: airingTodayTvError,
     isLoading: airingTodayTvIsloading,
-  } = useSWR('getAiringToday', getAiringToday);
+  } = useSWR('getAiringToday', getAiringTodayTv);
 
   const {
     data: popularTv,

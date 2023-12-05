@@ -50,7 +50,6 @@ const AppCarrouselSection = ({ title, data }) => {
 export default AppCarrouselSection;
 
 
-
 /*const AppCarrouselSection = ({ title, data }) => {
     
   return (
