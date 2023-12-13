@@ -1,4 +1,5 @@
 import React from 'react'
+import { sizes } from '../../constant';
 import AppCard from '../app_card/app_card';
 import AppSwiper from '../app_swiper/app_swiper';
 import AppSwiperSlide from '../app_swiper/components/app_swiper_slide';
@@ -32,10 +33,9 @@ const AppCarrouselSection = ({ title, data }) => {
                                     height="150px"
                                     width="250px"
                                     backgroundImageSrc={e.backdrop}
-                                // You can customize other styles or properties as needed
                                 >
                                     <AppCard.Header>
-                                        <AppTitle>{e.title}</AppTitle>
+                                        <AppTitle size={sizes.sm}>{e.title}</AppTitle>
                                     </AppCard.Header>
                                 </AppCard>
                             </AppSwiperSlide>

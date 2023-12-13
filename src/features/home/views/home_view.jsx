@@ -1,11 +1,17 @@
 import React from 'react';
+import { createPortal } from 'react-dom';
 import useSWR from 'swr';
 import AppCarrouselSection from '../../../core/components/app.carrousel.section/app_carrousel_section';
+import AppModal from '../../../core/components/app_modal/app_modal';
+import { useModal } from '../../../core/components/app_modal/hook/use_modal';
 import { getPopularMovies } from '../services/movies.services';
 import { getAiringTodayTv, getPopularTv } from '../services/tv.services';
 
 
 const HomeView = () => {
+
+  const {isOpen, closeModal, openModal} = useModal();
+
   const { 
     data: popularMovies, 
     error: popularMoviesError, 
@@ -41,6 +47,26 @@ const HomeView = () => {
         <AppCarrouselSection title={"Tv Pava XD" } data=
           {popularTv} />
       </div>
+
+      <div>
+        <AppCarrouselSection title={"Favorites"}  />
+      </div>
+
+      <button onClick={openModal}>ABRIR</button>
+
+      <AppModal open={isOpen} onClickedOut={closeModal}>
+        <div
+        style={{
+          height: "300px",
+          width: "300px",
+          backgroundColor: "white",
+          color: "red",
+        }}
+        >
+          Hi this is a Modal
+          <button onClick={closeModal}>CERRAR</button>
+        </div>
+      </AppModal>
     </div>
   );
 };
